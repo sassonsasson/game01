@@ -4,6 +4,15 @@
     max-height: 450px;
     max-width: 90%;
     margin-left: 5%;
+    background-image: url("http://i.stack.imgur.com/WHu9Z.png");
+    background-size: 450px 100%;
+}
+
+.inMaster h1 {
+  color: #d7ceb2;
+  text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+  font: 80px 'BazarMedium';
+  letter-spacing: 10px;
 }
 
 .mainTower {
@@ -12,12 +21,9 @@
     position: absolute;
     float: left;
     margin-top: 200px;
-    background-color: black;
-/*    background-image: url("https://cdn3.iconfinder.com/data/icons/security-and-protection/512/fortress_tower_castle_history_building_flat_icon-512.png");
-    background-position: cover;
-    background-size: 100%;
-    background-repeat: no-repeat;*/
-}
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/93/Mario_pipe.png");
+    background-size: 100% 250px;
+    }
 
 .infoBar {
   float: left;
@@ -48,15 +54,16 @@
 
 .moneyBox {
   float: left;
-  margin-top: 50px;
+  margin-top: 150px;
   margin-left: -125px;
   position: absolute;
   margin-left: 30px;
 }
 
 .btn-primary {
-  margin-right: 150px;
+  margin-left: -153px;
   position: absolute;
+  background-color: orange;
 }
 
 .theShop {
@@ -77,14 +84,66 @@
 
 .waveBtn{
   position: absolute;
+  color: white;
+  text-shadow: 1px 1px 1px blue, 
+               3px 3px 5px silver,
+               5px 5px 10px navy; 
+  font-size: 30px;
+  padding: 5px;
+  margin-left: 20%;
 }
 
 .bottomScreen {
   position: absolute;
   margin-right: 30%;
-  margin-left: 30%;
+  margin-left: 35%;
+  margin-top: -20px;
+  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+  color: #9c8468;
+  font: 80px 'Museo700';
+}
+
+.shopTitle{
+  text-shadow: 1px 1px 1px green, 
+  3px 3px 5px darkgreen; 
+  color: lightgreen;
+  font-size: 30px;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+.shopItems h4 {
+  text-shadow: 1px 1px 1px lightblue, 
+  3px 3px 5px navy; 
+  color: white;
+}
+
+.shopItems {
+  text-align: center;
+}
+
+.shopItems button {
+
 }
 
 .inMaster {
 
+}
+
+h5 {
+  text-shadow: 1px 1px 1px red, 
+               3px 3px 5px darkred; 
+  color: lightpink;
+  font-size: 30px;
+  margin-left: -200px;
+  margin-top: 15px;
+}
+
+h6 {
+  text-shadow: 1px 1px 1px green, 
+               3px 3px 5px darkgreen; 
+  color: lightgreen;
+  font-size: 30px;
+  margin-top: -43px;
+  margin-left: 150px;
 }

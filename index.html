@@ -8,6 +8,11 @@
   </head>
   <body ng-app="towerdef" ng-controller="MainCtrl">
 
+  <audio controls autoplay ng-show="false">
+  <source src="http://66.90.94.162/ost/happy-mario-20th-super-mario-sound-collection/ecbhpqsthy/01-overworld-bgm.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
     <div class="master text-center">
 
       <div class="inMaster">
@@ -16,22 +21,22 @@
           <div class="gameStart">
             <button class="btn btn-success" ng-click="startGame()" ng-show="startSee"> START GAME</button>
           </div>
-          <div class="wave">
-            <button class="btn waveBtn" ng-click="init()"> Wave Start </button>
+          <div ng-show="show0" class="wave">
+            <button class="btn waveBtn" ng-click="init()"> Wave Start Round - {{round}} </button>
           </div>
 
-          <div class="infoBar">
-           <h3> {{ hp }}HP ----- Money: ${{ money }} </h3>
+          <div ng-show="show0" class="infoBar">
+           <h5> {{ hp }}HP </h5> <h6> Money: ${{ money }} </h6>
            <button class="btn btn-primary" ng-click="shop()">SHOP ITEMS</button>
           </div>
 
           <div ng-show="shopSee" class="theShop">
             <div class="shopItems text-center">
-              <h4> The Shop! </h4>
-              <h4> Double Archer <button ng-show="show1" ng-click="dArcher()" class="btn btn-warning"> $350 </button> </h4>
-              <h4> Triple Archer <button ng-show="show2" ng-click="tArcher()" class="btn btn-warning"> $2500 </button> </h4>
-              <h4> Machine-Gun <button ng-show="show3" ng-click="machineGun()" class="btn btn-warning"> $7000 </button> </h4>
-              <h4> Dragon <button ng-show="show4" ng-click="dragon()" class="btn btn-warning"> $123,456 </button> </h4>
+              <h6 class="shopTitle"> The Shop! </h6>
+              <h4> Double Archer </h4> <button ng-show="show1" ng-click="wep1()" class="btn btn-warning"> $350 </button>
+              <h4> Triple Archer  </h4> <button ng-show="show2" ng-click="wep2()" class="btn btn-warning"> $2500 </button>
+              <h4> Machine-Gun  </h4> <button ng-show="show3" ng-click="wep3()" class="btn btn-warning"> $7000 </button>
+              <h4> Dragon  </h4> <button ng-show="show4" ng-click="wep4()" class="btn btn-warning"> $123,456 </button>
             </div>
           </div>
 
