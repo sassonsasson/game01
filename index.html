@@ -2,19 +2,54 @@
   <html>
   <head>
     <title>Gal*2-Tower-Defence</title>
-    <script src="/node_modules/angular/angular.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="node_modules/angular/angular.min.js"></script>
   </head>
-  <body>
+  <body ng-app="towerdef" ng-controller="MainCtrl">
+
     <div class="master text-center">
+
       <div class="inMaster">
         <h1> Gal*2 Tower Defence </h1>
          <div class="col-xl-10 gameScreen">
+          <div class="gameStart">
+            <button class="btn btn-success" ng-click="startGame()" ng-show="startSee"> START GAME</button>
+          </div>
+          <div class="wave">
+            <button class="btn waveBtn" ng-click="init()"> Wave Start </button>
+          </div>
+
+          <div class="infoBar">
+           <h3> {{ hp }}HP ----- Money: ${{ money }} </h3>
+           <button class="btn btn-primary" ng-click="shop()">SHOP ITEMS</button>
+          </div>
+
+          <div ng-show="shopSee" class="theShop">
+            <div class="shopItems text-center">
+              <h4> The Shop! </h4>
+              <h4> Double Archer <button ng-show="show1" ng-click="dArcher()" class="btn btn-warning"> $350 </button> </h4>
+              <h4> Triple Archer <button ng-show="show2" ng-click="tArcher()" class="btn btn-warning"> $2500 </button> </h4>
+              <h4> Machine-Gun <button ng-show="show3" ng-click="machineGun()" class="btn btn-warning"> $7000 </button> </h4>
+              <h4> Dragon <button ng-show="show4" ng-click="dragon()" class="btn btn-warning"> $123,456 </button> </h4>
+            </div>
+          </div>
+
+          <div class="moneyBox" ng-show="boxIt">
+            <button class="btn btn-warning" ng-click="moneyBox()"> Money Box </button>
+          </div>
 
           <div class="mainTower">
+            <div class="archer">
 
+            </div>
           </div>
+
+            <div class="attacker" ng-click="kill()" ng-repeat="attacker in attackers track by $index">
+              <div id="soldier" ng-style="{'margin-right': attackers[0].style['margin-right']}">
+                <img ng-src={{attacker.img}}>
+              </div>
+            </div>
 
 
          </div>
@@ -23,5 +58,9 @@
          </div>
       </div>
     </div>
+  <script src="app.js"></script>
+  <!-- <script src="beers.js"></script> -->
+  <script src="service.js"></script>
+  <script src="controller.js"></script>
   </body>
   </html>

@@ -7,12 +7,84 @@
 }
 
 .mainTower {
-    outline: 3px solid black;
     height: 250px;
     width: 150px;
-    position: relative;
+    position: absolute;
     float: left;
     margin-top: 200px;
-    background-color: blue;
+    background-color: black;
+/*    background-image: url("https://cdn3.iconfinder.com/data/icons/security-and-protection/512/fortress_tower_castle_history_building_flat_icon-512.png");
+    background-position: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;*/
+}
+
+.infoBar {
+  float: left;
+  margin-left: 10px;
+  position: absolute;
+}
+
+.gameStart {
+  position: absolute;
+  margin-left:35%;
+  margin-right: 50%;
+  margin-top: 12%;
+}
+
+.btn-success {
+  padding: 50px;
+  float:right ;
+  margin-top: 50px;
+  margin-left: 0px;
+}
+
+.archer {
+  width: 45px;
+  height: 75px;
+  background-color: green;
+  float: right;
+}
+
+.moneyBox {
+  float: left;
+  margin-top: 50px;
+  margin-left: -125px;
+  position: absolute;
+  margin-left: 30px;
+}
+
+.btn-primary {
+  margin-right: 150px;
+  position: absolute;
+}
+
+.theShop {
+  float: right;
+  background-color: grey;
+  margin-left: 35%;
+  padding: 25px;
+  position: absolute;
+}
+
+#soldier{
+    position: absolute;
+    float: right;
+    margin-right: 0px;
+    cursor: pointer;
+    margin-top: 330px;
+}
+
+.waveBtn{
+  position: absolute;
+}
+
+.bottomScreen {
+  position: absolute;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+.inMaster {
 
 }
