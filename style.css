@@ -31,6 +31,17 @@
   position: absolute;
 }
 
+.infoBar h4 {
+  margin-top: 40px;
+  margin-left: 10px;
+  position: absolute;
+  color: white;
+  text-shadow: 1px 1px 1px silver, 
+               3px 3px 5px black,
+               2px 2px black;
+
+}
+
 .gameStart {
   position: absolute;
   margin-left:35%;
@@ -45,12 +56,23 @@
   margin-left: 0px;
 }
 
-.archer {
-  width: 45px;
-  height: 75px;
-  background-color: green;
-  float: right;
+.monsterGo {
+  width: 100px;
+  height: 140px;
+  background-image: url('mario_pipe.png');
+  background-repeat: no-repeat;
+  background-size: 150%;
+  position: absolute;
+  margin-left: 82.2%;
+  margin-top: 22%;
 }
+
+/*.archer {
+  width: 100px;
+  height: 155px;
+  background-image: url('http://vignette3.wikia.nocookie.net/mario/images/e/e0/Fire_Flower_Artwork_-_New_Super_Mario_Bros.png/revision/latest?cb=20120324235034');
+  position: absolute;
+}*/
 
 .moneyBox {
   float: left;
@@ -123,7 +145,8 @@
 }
 
 .shopItems button {
-
+  text-shadow: 1px 1px red, 0 0 black, 1px 1px red;
+  font-family: cursive;
 }
 
 .inMaster {

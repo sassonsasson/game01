@@ -36,7 +36,7 @@
     $scope.wep1 = function(){
       if($scope.money >= 350){
         $scope.money -= 350
-        $scope.playerPower += 3;
+        $scope.playerPower += 5;
         $scope.show1 = !$scope.show1
         console.log(money)
         $scope.$apply();
@@ -47,7 +47,7 @@
     $scope.wep2 = function(){
       if($scope.money >= 2500){
         $scope.money -= 2500
-        $scope.playerPower += 6;
+        $scope.playerPower += 10;
         $scope.show2 = !$scope.show2
         $scope.$apply();
       }
@@ -56,10 +56,17 @@
     $scope.wep3 = function(){
       if($scope.money >= 7000){
         $scope.money -= 7000
-        $scope.playerPower += 20;
+        $scope.playerPower += 40;
         $scope.show3 = !$scope.show3
         $scope.$apply();
       }
+    }
+
+    $scope.playMusic = function(){
+       var audio = document.getElementById("audio");
+       var play = $scope.playMusic;
+       audio.play();
+                 
     }
 
     $scope.wep4 = function(){
@@ -87,7 +94,6 @@
 
     $scope.hitMe = function(){
       $scope.hp -= 1;
-      console.log($scope.hp)
       $scope.$apply();
       if($scope.hp <= 0){
         $scope.startSee = true;
@@ -112,39 +118,72 @@
 
   var interval = null;
 
-$scope.init = function(){
+  $scope.count = 0;
 
-  $scope.attackers = gameService.attackers;
-  var pos = gameService.attackers[0].margin;
-  var speed = gameService.attackers[0].speed;
-  var id = setInterval(frame, speed);
-  function frame() {
-    if (pos == 900) {
+  $scope.counter = function(){
+    $scope.count += 1;
+
+  }
+      var speed = gameService.attackers[0].speed;
+
+$scope.init = function(){
+  $scope.shopSee = false;
+    $scope.attackers.push([{margin: 0, speed: 12, money: 10, hp: 10, img: "zombie.gif", 
+          style: {"margin-right": "-50px", "position": "absolute", "cursor": "pointer", "margin-top": "265px"}}]);
+    console.log($scope.attackers)
+    /*for (i=0; i<gameService.attackers.length; i++){*/
+      var pos = gameService.attackers[0].margin;
+      var id = setInterval(frame, speed);
+      frame();
+    /*}*/
+      function frame() {
+    if (pos == 920) {
     clearInterval(id);
     var hit = $scope.hitMe
     interval = setInterval(function(){ hit(); }, 1000);
-    
       }
-      else if(gameService.attackers[0].hp <= 0){
+      else if($scope.attackers[0].hp <= 0){
         clearInterval(id);
       } else {
-      pos++;
-    $scope.attackers[0].style['margin-right'] = pos + 'px';
-    $scope.$apply();
+        pos++;
+        $scope.attackers[0][0].style['margin-right'] = pos + 'px';
+
+        // console.log($scope.attackers[0][0].style['margin-right'])
+       }
+      $scope.$apply();
     }
+  
+}
+
+
+  $scope.kill = function($index){
+
+    // var zombie = document.getElementById("soldier");
+    var zombie = $scope.attackers[$index]
+      for(var i = 0; i < $scope.attackers[$index].length ; i++){
+      $scope.attackers[$index][i].hp -= $scope.playerPower
+      console.log($scope.attackers[$index][i].hp)
+      console.log(i)
+
+      if($scope.attackers[$index][i].hp <= 0){
+        clearInterval(interval);
+      $scope.money += gameService.attackers[0].money;
+        // zombie.remove(zombie);
+        $scope.attackers.splice($index, 1);
+
+        var id = setInterval(frame, speed);
+
+        $scope.playMusic();
+
+          function frame() {
+           clearInterval(id);
+    }
+    frame()
+
+    }
+    }
+
+  $scope.$apply();
   }
-}
-
-$scope.kill = function(){
-var zombie = document.getElementById("soldier");
-gameService.attackers[0].hp -= $scope.playerPower
-if(gameService.attackers[0].hp <= 0){
-  clearInterval(interval);
-$scope.money += gameService.attackers[0].money;
-  zombie.remove(zombie);
-}
-
-$scope.$apply();
-}
 
   });

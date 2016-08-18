@@ -8,10 +8,11 @@
   </head>
   <body ng-app="towerdef" ng-controller="MainCtrl">
 
-  <audio controls autoplay ng-show="false">
+  <audio controls autoplay loop ng-show="false">
   <source src="http://66.90.94.162/ost/happy-mario-20th-super-mario-sound-collection/ecbhpqsthy/01-overworld-bgm.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
 </audio>
+
+<audio id="audio" src="http://themushroomkingdom.net/sounds/wav/smb/smb_bump.wav" type="audio/mpeg"></audio>
 
     <div class="master text-center">
 
@@ -28,6 +29,7 @@ Your browser does not support the audio element.
           <div ng-show="show0" class="infoBar">
            <h5> {{ hp }}HP </h5> <h6> Money: ${{ money }} </h6>
            <button class="btn btn-primary" ng-click="shop()">SHOP ITEMS</button>
+           <h4> Click-Power: {{playerPower}} </h4>
           </div>
 
           <div ng-show="shopSee" class="theShop">
@@ -40,19 +42,22 @@ Your browser does not support the audio element.
             </div>
           </div>
 
+          <div class="monsterGo">
+
+          </div>
+
           <div class="moneyBox" ng-show="boxIt">
             <button class="btn btn-warning" ng-click="moneyBox()"> Money Box </button>
           </div>
 
           <div class="mainTower">
-            <div class="archer">
-
-            </div>
           </div>
+            <div class="archer">
+            </div>
 
-            <div class="attacker" ng-click="kill()" ng-repeat="attacker in attackers track by $index">
-              <div id="soldier" ng-style="{'margin-right': attackers[0].style['margin-right']}">
-                <img ng-src={{attacker.img}}>
+            <div class="attacker" ng-repeat="attacker in attackers track by $index">
+              <div id="soldier" ng-click="kill($index)" ng-style="{'margin-right': attacker[$index].style['margin-right'], 'margin-top': attacker[$index].style['margin-top']}">
+                <img ng-src={{attacker[$index].img}}>
               </div>
             </div>
 
